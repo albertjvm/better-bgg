@@ -1,0 +1,32 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  height: 80px;
+  padding: 20px;
+  color: white;
+}
+
+.App-username {
+  font-size: 24pt;
+  font-weight: 400;
+  letter-spacing: 1pt;
+}
+
+.GameItem {
+  padding: 10px 0;
+}
+
+.GameItem-odd {
+  background-color: lightgray;
+}
