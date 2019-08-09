@@ -1,4 +1,5 @@
 .App {
+  height: 100vh;
   font-family: sans-serif;
   text-align: center;
 }
@@ -17,16 +18,15 @@
   color: white;
 }
 
+.App-body {
+  height: calc(100% - 80px - 40px);
+  max-height: calc(100% - 80px);
+  overflow-y: scroll;
+}
+
 .App-username {
   font-size: 24pt;
   font-weight: 400;
   letter-spacing: 1pt;
 }
 
-.GameItem {
-  padding: 10px 0;
-}
-
-.GameItem-odd {
-  background-color: lightgray;
-}

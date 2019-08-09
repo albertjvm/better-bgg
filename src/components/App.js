@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import cx from 'classnames';
-import { getCollectionByUsername, getUserByName } from '../utils/bggFetch.js';
+
+import { GameList } from './GameList';
+import { getCollectionByUsername, getUserByName, getItemsByIds } from '../utils/bggFetch.js';
 import './App.css';
 
 class App extends Component {
@@ -28,6 +29,33 @@ class App extends Component {
               ...state,
               collection,
             }));
+
+            return collection;
+          })
+          .then(({ items }) => {
+            getItemsByIds(items.map(i => i.objectid))
+              .then(result => {
+
+                this.setState((state) => ({
+                  ...state,
+                  collection: {
+                    ...state.collection,
+                    items: items.map(item => {
+                      let rItem = result.items.find(i => item.objectid === i.id);
+                      return {
+                        ...item,
+                        minplayers: rItem.minplayers,
+                        maxplayers: rItem.maxplayers,
+                        minage: rItem.minage,
+                        minplaytime: rItem.minplaytime,
+                        maxplaytime: rItem.maxplaytime,
+                        statistics: rItem.statistics,
+                      };
+                    })
+                  }
+                }));
+
+              });
           });
         })
         .then(null, err => {
@@ -46,18 +74,11 @@ class App extends Component {
           <img src="https://cf.geekdo-static.com/images/logos/navbar-logo-bgg-b2.svg" className="App-logo" alt="logo" />
           <h2 className="App-username">{user.name}</h2>
         </div>
-        { collection.items ?
-          <div className="GameList"> {
-            collection.items.map((item, i) => 
-              <div
-                className={cx('GameItem', i % 2 === 0 ? 'GameItem-even' : 'GameItem-odd')}
-                key={item.objectid}
-              >
-                {item.name}
-              </div>
-            )
-          }</div>
-        : null}
+        <section className="App-body">
+          { collection.items ?
+            <GameList games={collection.items} />
+          : null}
+        </section>
       </div>
     );
   }

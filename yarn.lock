@@ -2,6 +2,20 @@
 # yarn lockfile v1
 
 
+"@babel/runtime@^7.5.5":
+  version "7.5.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
+  integrity sha512-28QvEGyQyNkB0/m2B4FU7IEZGK2NUrcMtT6BZEFALTguLk+AUT6ofsHtPk5QyjAdUkpMJ+/Em+quwz4HOt30AQ==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
+"@tanem/svg-injector@^8.0.24":
+  version "8.0.24"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-8.0.24.tgz#989f515e6df780f63b5cd6fc601841da5ecc5614"
+  integrity sha512-FxHWcHrts/5zugNuO0gI+u5WvAxxuwfWFXup5CSsaWOrtGDfIPKUUduHA0f0wAEc0CzWExLjpEpY26RBDrDhjA==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+
 abab@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -5567,6 +5581,15 @@ react-scripts@0.9.x:
   optionalDependencies:
     fsevents "1.0.17"
 
+react-svg@^10.0.16:
+  version "10.0.16"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-10.0.16.tgz#2b2857fb24bae20bef5dfec929662e4dc1c0e6b7"
+  integrity sha512-P5qi9ki68qoNLISjYKPK4K4g8Uh0o+B2AcCeZEgTOpdd6SMFDX5Z/hjFtfUO97Xjv0axlu0owF0CCkHLbynjVw==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    "@tanem/svg-injector" "^8.0.24"
+    prop-types "^15.7.2"
+
 react@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
@@ -5685,6 +5708,11 @@ regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
+
+regenerator-runtime@^0.13.2:
+  version "0.13.3"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.3.tgz#7cf6a77d8f5c6f60eb73c5fc1955b2ceb01e6bf5"
+  integrity sha512-naKIZz2GQ8JWh///G7L3X6LaQUAMp2lvb1rvwwsURe/VXwD6VMfr+/1NuNw3ag8v2kY1aQ/go5SNn79O9JU7yw==
 
 regenerator-transform@0.9.8:
   version "0.9.8"

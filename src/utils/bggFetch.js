@@ -8,8 +8,34 @@ function getUserByName(name) {
 }
 
 function getCollectionByUsername(username) {
-  return makeRequest('collection', {username})
+  return makeRequest('collection', {username, own: 1})
     .then(result => result.items);
+}
+
+function getItemsByIds(ids) {
+  return makeRequest('thing', {
+    id: ids.join(','),
+    versions: 0,
+    videos: 0,
+    historical: 0,
+    marketplace: 0,
+    comments: 0,
+    ratingcomments: 0,
+    stats: 1,
+  })
+    .then(result => result.items)
+    .then(result => ({
+      ...result,
+      items: result.items.map(i => ({
+        ...simplifyValues(i),
+        statistics: {
+          ...i.statistics,
+          ratings: {
+            ...simplifyValues(i.statistics.ratings),
+          }
+        }
+      }))
+    }));
 }
 
 function makeRequest(path, params) {
@@ -33,4 +59,4 @@ function simplifyValues(obj) {
     }), {});
 }
 
-export { getUserByName, getCollectionByUsername };
+export { getUserByName, getCollectionByUsername, getItemsByIds };

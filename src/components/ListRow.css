@@ -1,0 +1,15 @@
+.ListRow {
+  padding: 10px 0;
+}
+
+.ListRow:hover {
+  background-color: #eee;
+}
+
+.ListRow-odd {
+  background-color: #ccc;
+}
+
+.ListRow-odd:hover {
+  background-color: #bbb;
+}

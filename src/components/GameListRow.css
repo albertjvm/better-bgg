@@ -1,0 +1,31 @@
+.GameListRow-body {
+  display: flex;
+  align-items: center;
+}
+
+.GameListRow-name {
+  flex: 3;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 0 15px;
+}
+
+.GameListRow-players {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.GameListRow-players-icon {
+  margin-right: 10px;
+  position: relative;
+  top: 1px;
+}
+
+.GameListRow-players-icon svg{
+  fill: #222;
+  height: 14px;
+  width: 14px;
+}

@@ -1,0 +1,5 @@
+.FilterBar {
+  height: 3rem;
+  background-color: #555;
+  display: flex;
+}
