@@ -22,6 +22,7 @@ export function GameList({ games }) {
     <List> 
       <FilterBar
         sortDir={sortDir}
+        sortKey={sortKey}
         setSortKey={setSortKey}
         setSortDir={setSortDir}
       />

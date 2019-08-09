@@ -3,23 +3,39 @@ import './FilterBar.css';
 
 import { Button } from './Button';
 
+function handleClick(
+  value, 
+  sortDir,
+  sortKey,
+  setSortDir,
+  setSortKey,
+) {
+  if (value === sortKey) {
+    setSortDir(sortDir === 'ASC' ? 'DESC' : 'ASC')
+  } else {
+    setSortKey(value);
+    setSortDir('ASC');
+  }
+}
+
+const sortableFields = [
+  { name: 'name', display: 'Name' },
+  { name: 'statistics.ratings.averageweight', display: 'Weight'},
+];
+
 export function FilterBar({
   sortDir,
-  setSortKey,
+  sortKey,
   setSortDir,
+  setSortKey,
 }) {
   return (
     <div className="FilterBar">
-      <Button onClick={() => setSortKey('name')}>Name</Button>
-      <Button onClick={() => setSortKey('statistics.ratings.averageweight')}>Weight</Button>
-      <Button 
-        onClick={() => setSortDir(sortDir === 'ASC' ? 'DESC' : 'ASC')}
-        style={{
-          padding: '0 2rem',
-        }}
-      >
-        {sortDir === 'ASC' ? '⬇' : '⬆'}
-      </Button>
+      {sortableFields.map(({name, display}) => (
+        <Button onClick={() => handleClick(name, sortDir, sortKey, setSortDir, setSortKey)}>
+          {`${display} ${sortKey === name ? (sortDir === 'ASC' ? '⬇' : '⬆') : ''}`}
+        </Button>
+      ))}
     </div>
   );
 };
