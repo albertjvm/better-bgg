@@ -24,10 +24,10 @@ export function GameListRow({ game, index }) {
           {game.minplayers ? <ReactSVG className="GameListRow-players-icon" src={meeple} /> : null}
           {game.minplayers ? `${playerString(game)}`: ''}
         </span>
-        <span className="GameListRow-playtime">
+        {/* <span className="GameListRow-playtime">
           {game.minplaytime ? <ReactSVG className="GameListRow-playtime-icon" src={clock} /> : null}
           {game.minplaytime ? `${playtimeString(game)}`: ''}
-        </span>
+        </span> */}
       </div>
     </ListRow>
   );

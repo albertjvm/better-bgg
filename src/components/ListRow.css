@@ -7,9 +7,9 @@
 }
 
 .ListRow-odd {
-  background-color: #ccc;
+  background-color: #ddd;
 }
 
 .ListRow-odd:hover {
-  background-color: #bbb;
+  background-color: #ccc;
 }

@@ -17,7 +17,7 @@ export function GameList({ games }) {
   const [sortKey, setSortKey] = useState('name');
   const [sortDir, setSortDir] = useState('ASC');
   const sortedGames = sortGames(games, sortKey, sortDir);
-  console.log(games);
+
   return (
     <List> 
       <FilterBar
