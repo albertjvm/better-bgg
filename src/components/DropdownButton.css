@@ -1,10 +1,8 @@
 .DropdownButton-panel {
   z-index: 1;
   position: relative;
-  left: 0;
+  float: right;
+  right: 0;
   top: 0;
   overflow: hidden;
-}
-.DropdownButton-panel .Button {
-  background-color: #f50;
 }

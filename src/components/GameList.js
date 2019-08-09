@@ -13,18 +13,27 @@ function sortGames(games, sortKey, sortDir) {
   ) ? -1 : 1);
 }
 
+function filterGames(games, playerFilter) {
+  return games.filter(game => playerFilter === 0 || (parseInt(game.minplayers, 10) <= playerFilter && parseInt(game.maxplayers, 10) >= playerFilter));
+}
+
 export function GameList({ games }) {
   const [sortKey, setSortKey] = useState('name');
   const [sortDir, setSortDir] = useState('ASC');
-  const sortedGames = sortGames(games, sortKey, sortDir);
+  const [playerFilter, setPlayerFilter] = useState(0);
+  const sortedGames = sortGames(
+    filterGames(games, playerFilter),
+  sortKey, sortDir);
 
   return (
     <List> 
       <FilterBar
         sortDir={sortDir}
         sortKey={sortKey}
+        playerFilter={playerFilter}
         setSortKey={setSortKey}
         setSortDir={setSortDir}
+        setPlayerFilter={setPlayerFilter}
       />
       {
         sortedGames.map((game, i) => 
