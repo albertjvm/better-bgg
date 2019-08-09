@@ -1,31 +1,44 @@
 .GameListRow-body {
   display: flex;
   align-items: center;
+  padding-right: 15px;
 }
 
 .GameListRow-name {
-  flex: 3;
+  flex: 4;
   font-size: 18px;
   line-height: 18px;
   padding: 0 15px;
 }
 
-.GameListRow-players {
+.GameListRow-players, .GameListRow-playtime {
   flex: 1;
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 12px;
   line-height: 18px;
 }
 
-.GameListRow-players-icon {
-  margin-right: 10px;
+.GameListRow-players-icon, .GameListRow-playtime-icon {
+  margin-right: 5px;
   position: relative;
-  top: 1px;
 }
 
-.GameListRow-players-icon svg{
+.GameListRow-players-icon {
+  top: 1px;
+} 
+.GameListRow-playtime-icon {
+  top: 4px;
+}
+
+.GameListRow-players-icon svg {
   fill: #222;
-  height: 14px;
-  width: 14px;
+  height: 12px;
+  width: 12px;
+}
+
+.GameListRow-playtime-icon svg {
+  fill: #222;
+  height: 16px;
+  width: 16px;
 }
