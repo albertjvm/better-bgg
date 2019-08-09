@@ -6,8 +6,8 @@
 
 .GameListRow-name {
   flex: 4;
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 1rem;
+  line-height: 1rem;
   padding: 0 15px;
 }
 
@@ -15,8 +15,8 @@
   flex: 1;
   display: flex;
   align-items: center;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
 }
 
 .GameListRow-players-icon, .GameListRow-playtime-icon {
