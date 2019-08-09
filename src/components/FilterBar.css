@@ -1,5 +1,8 @@
 .FilterBar {
-  height: 3rem;
+  height: 5rem;
   background-color: #555;
   display: flex;
+}
+.FilterBar button {
+  font-size: 1.5rem;
 }

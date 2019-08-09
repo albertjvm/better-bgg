@@ -8,7 +8,6 @@ function parse (xml) {
 }
 
 function parseEl (el) {
-  const domParser = new DOMParser();
   return {
     [el.tagName]: !!el.innerHTML && el.children.length === 0 
       ? el.textContent
