@@ -28,6 +28,7 @@ function handleClick(
 
 const sortableFields = [
   { name: 'name', display: 'Name' },
+  { name: 'numplays', display: 'Plays' },
   { name: 'statistics.ratings.averageweight', display: 'Weight'},
 ];
 

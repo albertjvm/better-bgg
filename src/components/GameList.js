@@ -7,10 +7,18 @@ import { FilterBar } from './FilterBar';
 
 function sortGames(games, sortKey, sortDir) {
   const path = sortKey.split('.');
-  return games.sort((a, b) => R.lt(
-    R.path(path, sortDir === 'ASC' ? a : b),
-    R.path(path, sortDir === 'ASC' ? b : a),
-  ) ? -1 : 1);
+  return games.sort((a, b) =>  {
+    if (['numplays'].includes(sortKey)) {
+      return parseInt(R.path(path, sortDir === 'ASC' ? a : b), 10) - parseInt(R.path(path, sortDir === 'ASC' ? b : a), 10);
+    } else if (['statistics.ratings.averageweight'].includes(sortKey)) {
+      return parseFloat(R.path(path, sortDir === 'ASC' ? a : b), 10) - parseFloat(R.path(path, sortDir === 'ASC' ? b : a), 10);
+    } else {
+      return R.lt(
+        R.path(path, sortDir === 'ASC' ? a : b),
+        R.path(path, sortDir === 'ASC' ? b : a),
+      ) ? -1 : 1;
+    }
+  });
 }
 
 function filterGames(games, playerFilter) {
@@ -24,7 +32,7 @@ export function GameList({ games }) {
   const sortedGames = sortGames(
     filterGames(games, playerFilter),
   sortKey, sortDir);
-
+  console.log(sortedGames);
   return (
     <List> 
       <FilterBar
