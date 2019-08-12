@@ -44,7 +44,7 @@ class App extends Component {
                       let rItem = result.items.find(i => item.objectid === i.id);
                       return {
                         ...item,
-                        description: rItem.description,
+                        description: decodeURI(rItem.description),
                         minplayers: rItem.minplayers,
                         maxplayers: rItem.maxplayers,
                         minage: rItem.minage,

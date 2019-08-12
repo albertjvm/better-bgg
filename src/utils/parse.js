@@ -1,3 +1,5 @@
+import he from 'he';
+
 function parse (xml) {
   const doc = typeof xml === 'string' 
     ? (new window.DOMParser()).parseFromString(xml, "text/xml")
@@ -10,7 +12,7 @@ function parse (xml) {
 function parseEl (el) {
   return {
     [el.tagName]: !!el.innerHTML && el.children.length === 0 
-      ? el.textContent
+      ? he.decode(el.textContent)
       : {
         ...Object.keys(el.attributes).reduce((acc, i) => ({
           ...acc,
