@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import ReactSVG from 'react-svg';
+import cx from 'classnames';
 import './FilterBar.css';
 
 import sort from '../icons/sort.svg';
 import filter from '../icons/filter.svg';
 import meeple from '../icons/meeple.svg';
+import arrow from '../icons/arrow.svg';
 import { Button } from './Button';
 import { Counter } from './Counter';
 import { DropdownButton } from './DropdownButton';
@@ -56,7 +58,12 @@ export function FilterBar({
           <Button key={name} className="FilterBar-button FilterBar-sort-button" onClick={() => handleClick(name, sortDir, sortKey, setSortDir, setSortKey, setActiveDropdown)}>{display}</Button>
         ))}
       </DropdownButton>
-      <Button className="FilterBar-button FilterBar-sortDir" onClick={() => setSortDir(sortDir === 'ASC' ? 'DESC' : 'ASC')}>{sortDir === 'ASC' ? '⬇' : '⬆'}</Button>
+      <Button
+        className={cx('FilterBar-button', 'FilterBar-sortDir', {desc: sortDir === 'DESC'})}
+        onClick={() => setSortDir(sortDir === 'ASC' ? 'DESC' : 'ASC')}
+      >
+        <ReactSVG className="FilterBar-sortDir-icon" src={arrow} />
+      </Button>
       <DropdownButton
         expanded={activeDropdown === 'filter'}
         onClick={() => setActiveDropdown(activeDropdown === 'filter' ? '' : 'filter')}

@@ -1,5 +1,4 @@
 .FilterBar {
-  height: 3rem;
   background-color: #555;
   display: flex;
   justify-content: space-between;
@@ -24,7 +23,23 @@
 
 .FilterBar .FilterBar-sortDir {
   flex: 1;
-  /* padding: 10px 3rem; */
+}
+
+.FilterBar-sortDir-icon {
+  transition: transform 0.5s ease-out;
+  transform: rotateX(0deg);
+}
+
+.FilterBar-sortDir.desc .FilterBar-sortDir-icon {
+  transform: rotateX(180deg);
+}
+
+.FilterBar-sortDir-icon svg {
+  fill: white;
+  position: relative;
+  top: 5px;
+  height: 30px;
+  width: 30px;
 }
 
 .FilterBar .FilterBar-sort, .FilterBar .FilterBar-filter {

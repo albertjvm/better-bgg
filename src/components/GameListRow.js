@@ -30,19 +30,17 @@ export function GameListRow({ game, index, expanded, onClick }) {
           {game.minplayers ? `${playerString(game)}`: ''}
         </span>
       </div>
-      {expanded ? (
-        <div className="GameListRow-expanded-body">
-          <p className="GameListRow-description">{game.description}</p>
-          <span className="GameListRow-weight">
-            { gameWeight(game) ? <ReactSVG className="GameListRow-weight-icon" src={weight} /> : null}
-            { gameWeight(game) ? `${gameWeight(game)}`: ''}
-          </span>
-          <span className="GameListRow-playtime">
-            { game.minplaytime ? <ReactSVG className="GameListRow-playtime-icon" src={clock} /> : null}
-            { game.minplaytime ? `${playtimeString(game)}`: ''}
-          </span>
-        </div>
-      ) : null}
+      <div className="GameListRow-expanded-body">
+        <p className="GameListRow-description">{game.description}</p>
+        <span className="GameListRow-weight">
+          { gameWeight(game) ? <ReactSVG className="GameListRow-weight-icon" src={weight} /> : null}
+          { gameWeight(game) ? `${gameWeight(game)}`: ''}
+        </span>
+        <span className="GameListRow-playtime">
+          { game.minplaytime ? <ReactSVG className="GameListRow-playtime-icon" src={clock} /> : null}
+          { game.minplaytime ? `${playtimeString(game)}`: ''}
+        </span>
+      </div>
     </ListRow>
   );
 }

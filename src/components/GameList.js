@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import R from 'ramda';
+import './GameList.css';
 
 import { List } from './List';
 import { GameListRow } from './GameListRow';
@@ -34,7 +35,7 @@ export function GameList({ games }) {
     filterGames(games, playerFilter),
   sortKey, sortDir);
   return (
-    <List> 
+    <div className="GameList">
       <FilterBar
         sortDir={sortDir}
         sortKey={sortKey}
@@ -43,17 +44,19 @@ export function GameList({ games }) {
         setSortDir={setSortDir}
         setPlayerFilter={setPlayerFilter}
       />
-      {
-        sortedGames.map((game, i) => 
-          <GameListRow 
-            key={i}
-            index={i}
-            game={game}
-            expanded={game.objectid === expandedId}
-            onClick={() => setExpandedId(game.objectid === expandedId ? null : game.objectid)}
-          />
-        )
-      }
-    </List>
+      <List>
+        {
+          sortedGames.map((game, i) => 
+            <GameListRow 
+              key={i}
+              index={i}
+              game={game}
+              expanded={game.objectid === expandedId}
+              onClick={() => setExpandedId(game.objectid === expandedId ? null : game.objectid)}
+            />
+          )
+        }
+      </List>
+    </div>
   );
 }

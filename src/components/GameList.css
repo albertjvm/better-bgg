@@ -1,0 +1,11 @@
+.GameList {
+  height: 100%;
+}
+
+.GameList .FilterBar {
+  height: 3rem;
+}
+
+.GameList .List {
+  height: calc(100% - 3rem);
+}

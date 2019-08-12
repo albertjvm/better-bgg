@@ -20,8 +20,8 @@
 
 .App-body {
   height: calc(100% - 3rem - 2rem);
-  max-height: calc(100% - 80px);
-  overflow-y: scroll;
+  max-height: calc(100% - 3rem - 2rem);
+  overflow: hidden;
 }
 
 .App-username {
