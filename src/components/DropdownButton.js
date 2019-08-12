@@ -1,18 +1,17 @@
 import React from 'react';
+import cx from 'classnames';
 import './DropdownButton.css';
 
 export function DropdownButton({ button, expanded, onClick, children }) {
   
   return (
-    <div className="DropdownButton">
+    <div className={cx('DropdownButton', {expanded})}>
       {React.cloneElement(button, {
         onClick
       })}
-      {expanded ? (
-        <div className="DropdownButton-panel">
-          {children}
-        </div>
-      ) : null}
+      <div className="DropdownButton-panel">
+        {children}
+      </div>
     </div>
   );
 }

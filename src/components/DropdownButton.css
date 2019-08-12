@@ -5,4 +5,11 @@
   right: 0;
   top: 0;
   overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease-out;
+}
+
+.DropdownButton.expanded .DropdownButton-panel {
+  transform: scaleY(1);
 }
