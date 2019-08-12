@@ -44,11 +44,13 @@ class App extends Component {
                       let rItem = result.items.find(i => item.objectid === i.id);
                       return {
                         ...item,
+                        description: rItem.description,
                         minplayers: rItem.minplayers,
                         maxplayers: rItem.maxplayers,
                         minage: rItem.minage,
                         minplaytime: rItem.minplaytime,
                         maxplaytime: rItem.maxplaytime,
+                        playingtime: rItem.playingtime,
                         statistics: rItem.statistics,
                       };
                     })

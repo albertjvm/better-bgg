@@ -29,10 +29,10 @@ export function GameList({ games }) {
   const [sortKey, setSortKey] = useState('name');
   const [sortDir, setSortDir] = useState('ASC');
   const [playerFilter, setPlayerFilter] = useState(0);
+  const [expandedId, setExpandedId] = useState(null);
   const sortedGames = sortGames(
     filterGames(games, playerFilter),
   sortKey, sortDir);
-  console.log(sortedGames);
   return (
     <List> 
       <FilterBar
@@ -45,7 +45,13 @@ export function GameList({ games }) {
       />
       {
         sortedGames.map((game, i) => 
-          <GameListRow key={i} index={i} game={game} />
+          <GameListRow 
+            key={i}
+            index={i}
+            game={game}
+            expanded={game.objectid === expandedId}
+            onClick={() => setExpandedId(game.objectid === expandedId ? null : game.objectid)}
+          />
         )
       }
     </List>
