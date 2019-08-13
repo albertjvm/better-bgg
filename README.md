@@ -1,1 +1,1 @@
-Hosted at better-bgg.albertjvm.ca
+Hosted at better-bgg.albertjvm.ca[better-bgg.albertjvm.ca]
