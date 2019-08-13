@@ -18,7 +18,10 @@ class App extends Component {
 
   componentDidMount() {
     try {
-      this.handleLogin(window.localStorage.getItem('username'));
+      let username = window.localStorage.getItem('username');
+      if (username) {
+        this.handleLogin(username);
+      }
     } catch (err) {
       console.error(err);
     }
@@ -55,9 +58,16 @@ class App extends Component {
                     ...state.collection,
                     items: items.map(item => {
                       let rItem = result.items.find(i => item.objectid === i.id);
+                      let decodedDescription = rItem.description;
+                      try {
+                        decodedDescription = decodeURI(decodedDescription);
+                      } catch(e) {
+                        console.error(e);
+                      }
+
                       return {
                         ...item,
-                        description: decodeURI(rItem.description),
+                        description: decodedDescription,
                         minplayers: rItem.minplayers,
                         maxplayers: rItem.maxplayers,
                         minage: rItem.minage,
@@ -90,17 +100,22 @@ class App extends Component {
     });
   }
 
+  handleLogout() {
+    this.setState({
+      username: null,
+      user: {},
+      collection: {},
+    });
+    window.localStorage.removeItem('username');
+  }
+
   render() {
     const { collection, username } = this.state;
     return (
       <div className="App">
         <Header
           username={username}
-          onLogout={() => this.setState({
-            username: null,
-            user: {},
-            collection: {},
-          })}
+          onLogout={() => this.handleLogout()}
         />
         <section className="App-body">
           { username ?
