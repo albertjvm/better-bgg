@@ -17,7 +17,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.fetchData();
+    try {
+      this.handleLogin(window.localStorage.getItem('username'));
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   fetchData() {
@@ -80,7 +84,10 @@ class App extends Component {
   handleLogin(username) {
     this.setState({
       username
-    }, () => this.fetchData());
+    }, () => {
+      this.fetchData();
+      window.localStorage.setItem('username', username);
+    });
   }
 
   render() {
