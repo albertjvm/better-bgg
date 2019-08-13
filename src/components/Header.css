@@ -1,0 +1,28 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  height: 3rem;
+  padding: 1rem;
+  color: white;
+}
+
+.Header-logo {
+  height: 100%;
+}
+
+.Header-username {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 1pt;
+  margin-top: 10px;
+}
+
+.Header-logout {
+  background-color: #f50;
+  border: none;
+  color: white;
+  padding: .5rem 1rem;
+  font-size: 18pt;
+}

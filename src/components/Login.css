@@ -1,0 +1,39 @@
+.Login {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-color: #222;
+}
+
+.Login-label {
+  color: white;
+  font-size: 24pt;
+  padding: 2rem 2rem 0;
+}
+
+.Login-input {
+  border: none;
+  background-color: #f50;
+  padding: 15px;
+  font-size: 24pt;
+  outline: none;
+  color: white;
+  text-align: center;
+  margin: 2rem 0;
+  letter-spacing: .1rem;
+  font-weight: 500;
+}
+
+.Login-button {
+  background-color: white;
+  border: none;
+  padding: 15px;
+  font-size: 24pt;
+  outline: none;
+}
+
+.Login-button:active {
+  background-color: #222;
+  color: white;
+}

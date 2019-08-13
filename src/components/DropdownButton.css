@@ -1,3 +1,7 @@
+.DropdownButton {
+  height: 100%;
+}
+
 .DropdownButton-panel {
   z-index: 1;
   position: relative;

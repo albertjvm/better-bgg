@@ -4,29 +4,8 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 100%;
-}
-
-.App-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #222;
-  height: 3rem;
-  padding: 1rem;
-  color: white;
-}
-
 .App-body {
   height: calc(100% - 3rem - 2rem);
   max-height: calc(100% - 3rem - 2rem);
   overflow: hidden;
 }
-
-.App-username {
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 1pt;
-}
-

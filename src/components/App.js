@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import { GameList } from './GameList';
+import { Header } from './Header';
+import { Login } from './Login';
 import { getCollectionByUsername, getUserByName, getItemsByIds } from '../utils/bggFetch.js';
 import './App.css';
 
@@ -8,14 +10,21 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: null,
       user: {},
       collection: {},
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    // this.fetchData();
+  }
+
+  fetchData() {
+    const { username } = this.state;
+
     try {
-      getUserByName('albertjvm')
+      getUserByName(username)
         .then(user => {
           this.setState((state) => ({
             ...state,
@@ -68,18 +77,30 @@ class App extends Component {
     }
   }
 
+  handleLogin(username) {
+    this.setState({
+      username
+    }, () => this.fetchData());
+  }
+
   render() {
-    const { user, collection } = this.state;
+    const { collection, username } = this.state;
     return (
       <div className="App">
-        <div className="App-header">
-          <img src="https://cf.geekdo-static.com/images/logos/navbar-logo-bgg-b2.svg" className="App-logo" alt="logo" />
-          <h2 className="App-username">{user.name}</h2>
-        </div>
+        <Header
+          username={username}
+          onLogout={() => this.setState({
+            username: null,
+            user: {},
+            collection: {},
+          })}
+        />
         <section className="App-body">
-          { collection.items ?
-            <GameList games={collection.items} />
-          : null}
+          { username ?
+            <GameList games={collection.items || []} />
+          :
+            <Login onLogin={(username) => this.handleLogin(username)} />
+          }
         </section>
       </div>
     );
