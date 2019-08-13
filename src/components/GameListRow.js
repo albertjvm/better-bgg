@@ -8,6 +8,7 @@ import { ListRow } from './ListRow';
 import clock from '../icons/clock.svg';
 import meeple from '../icons/meeple.svg';
 import weight from '../icons/weight.svg';
+import play from '../icons/play.svg';
 import './GameListRow.css';
 
 function playerString({ minplayers, maxplayers }) {
@@ -39,6 +40,10 @@ export function GameListRow({ game, index, expanded, onClick }) {
         <span className="GameListRow-playtime">
           { game.minplaytime ? <ReactSVG className="GameListRow-playtime-icon" src={clock} /> : null}
           { game.minplaytime ? `${playtimeString(game)}`: ''}
+        </span>
+        <span className="GameListRow-plays">
+          { game.numplays ? <ReactSVG className="GameListRow-plays-icon" src={play} /> : null}
+          { game.numplays }
         </span>
       </div>
     </ListRow>

@@ -16,7 +16,7 @@
   padding: 0 10px;
   grid-column-gap: 1rem;
   grid-template-columns: 7fr 2fr;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   height: 100%;
   overflow: hidden;
 }
@@ -33,9 +33,10 @@
 }
 
 .GameListRow-body {
-  display: flex;
-  align-items: center;
-  padding-right: 15px;
+  display: grid;
+  padding: 0 10px;
+  grid-column-gap: 1rem;
+  grid-template-columns: 7fr 2fr;
 }
 
 .GameListRow-name {
@@ -48,7 +49,10 @@
   text-overflow: ellipsis;
 }
 
-.GameListRow-players, .GameListRow-playtime, .GameListRow-weight {
+.GameListRow-plays,
+.GameListRow-players,
+.GameListRow-playtime,
+.GameListRow-weight {
   grid-column: 2;
   flex: 1;
   display: flex;
@@ -57,20 +61,27 @@
   line-height: 0.75rem;
 }
 
-.GameListRow-players-icon, .GameListRow-playtime-icon, .GameListRow-weight-icon {
+.GameListRow-plays-icon,
+.GameListRow-players-icon,
+.GameListRow-playtime-icon,
+.GameListRow-weight-icon {
   margin-right: 5px;
   position: relative;
 }
 
 .GameListRow-weight-icon {
-  margin-right: 0;
   top: 2px;
+  left: -3px;
+  margin-right: 1px;
 } 
 .GameListRow-players-icon {
   top: 1px;
 } 
 .GameListRow-playtime-icon {
-  top: 4px;
+  top: 2px;
+}
+.GameListRow-plays-icon {
+  top: 3px;
 }
 
 .GameListRow-weight-icon svg {
@@ -78,14 +89,17 @@
   height: 18px;
   width: 18px;
 }
-
 .GameListRow-players-icon svg {
   fill: #222;
   height: 12px;
   width: 12px;
 }
-
 .GameListRow-playtime-icon svg {
+  fill: #222;
+  height: 16px;
+  width: 16px;
+}
+.GameListRow-plays-icon svg {
   fill: #222;
   height: 16px;
   width: 16px;
