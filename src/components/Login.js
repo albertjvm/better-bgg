@@ -7,8 +7,9 @@ export function Login({ onLogin }) {
   const [value, setValue] = useState('');
   return (
     <div className="Login">
-      <span className="Login-label">Enter your BGG username</span>
+      <label className="Login-label" id="usernameLabel">Enter your BGG username</label>
       <input
+        aria-labelledBy="usernameLabel"
         className="Login-input"
         type="text"
         value={value}

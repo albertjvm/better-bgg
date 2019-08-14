@@ -119,7 +119,7 @@ class App extends Component {
         />
         <section className="App-body">
           { username ?
-            <GameList games={collection.items || []} />
+            <GameList games={collection.items || []} username={username} />
           :
             <Login onLogin={(username) => this.handleLogin(username)} />
           }

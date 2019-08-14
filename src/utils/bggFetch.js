@@ -38,6 +38,11 @@ function getItemsByIds(ids) {
     }));
 }
 
+function getPlays(username, id) {
+  return makeRequest('plays', {username, id})
+    .then(result => console.log(result));
+}
+
 function makeRequest(path, params) {
   return fetch(`${BGG_API_URL}${path}?${Object.keys(params).map(
     k => `${k}=${params[k]}`).join('&'
@@ -59,4 +64,4 @@ function simplifyValues(obj) {
     }), {});
 }
 
-export { getUserByName, getCollectionByUsername, getItemsByIds };
+export { getUserByName, getCollectionByUsername, getItemsByIds, getPlays };
