@@ -40,7 +40,7 @@ function getItemsByIds(ids) {
 
 function getPlays(username, id) {
   return makeRequest('plays', {username, id})
-    .then(result => console.log(result));
+    .then(result => result.plays);
 }
 
 function makeRequest(path, params) {

@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { GameList } from './GameList';
 import { Header } from './Header';
 import { Login } from './Login';
-import { getCollectionByUsername, getUserByName, getItemsByIds } from '../utils/bggFetch.js';
+import { PlayView } from './PlayView';
+import { getCollectionByUsername, getItemsByIds } from '../utils/bggFetch.js';
 import './App.css';
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
       username: null,
       user: {},
       collection: {},
+      selectedGame: null,
     };
   }
 
@@ -31,16 +33,16 @@ class App extends Component {
     const { username } = this.state;
 
     try {
-      getUserByName(username)
-        .then(user => {
-          this.setState((state) => ({
-            ...state,
-            user,
-          }));
-          return user;
-        })
-        .then(user => {
-          getCollectionByUsername(user.name).then(collection => {
+      // getUserByName(username)
+      //   .then(user => {
+      //     this.setState((state) => ({
+      //       ...state,
+      //       user,
+      //     }));
+      //     return user;
+      //   })
+      //   .then(user => {
+          getCollectionByUsername(username).then(collection => {
             this.setState((state) => ({
               ...state,
               collection,
@@ -82,10 +84,10 @@ class App extends Component {
 
               });
           });
-        })
-        .then(null, err => {
-          console.error(err);
-        });
+    //     })
+    //     .then(null, err => {
+    //       console.error(err);
+    //     });
     } catch (err) {
       console.error(err);
     }
@@ -105,12 +107,19 @@ class App extends Component {
       username: null,
       user: {},
       collection: {},
+      selectedGame: null,
     });
     window.localStorage.removeItem('username');
   }
 
+  selectGame(game) {
+    this.setState({
+      selectedGame: game,
+    });
+  }
+
   render() {
-    const { collection, username } = this.state;
+    const { collection, username, selectedGame } = this.state;
     return (
       <div className="App">
         <Header
@@ -119,7 +128,14 @@ class App extends Component {
         />
         <section className="App-body">
           { username ?
-            <GameList games={collection.items || []} username={username} />
+            selectedGame ?
+              <PlayView username={username} game={selectedGame} onBack={() => this.selectGame(null)} />
+            :
+              <GameList 
+                games={collection.items || []}
+                username={username}
+                selectGame={(game) => this.selectGame(game)}
+              />
           :
             <Login onLogin={(username) => this.handleLogin(username)} />
           }

@@ -26,7 +26,7 @@ function filterGames(games, playerFilter) {
   return games.filter(game => playerFilter === 0 || (parseInt(game.minplayers, 10) <= playerFilter && parseInt(game.maxplayers, 10) >= playerFilter));
 }
 
-export function GameList({ games, username }) {
+export function GameList({ games, username, selectGame }) {
   const [sortKey, setSortKey] = useState('name');
   const [sortDir, setSortDir] = useState('ASC');
   const [playerFilter, setPlayerFilter] = useState(0);
@@ -54,6 +54,7 @@ export function GameList({ games, username }) {
               username={username}
               expanded={game.objectid === expandedId}
               onClick={() => setExpandedId(game.objectid === expandedId ? null : game.objectid)}
+              selectGame={selectGame}
             />
           )
         }

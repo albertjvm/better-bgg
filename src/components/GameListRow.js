@@ -4,7 +4,7 @@ import R from 'ramda';
 import cx from 'classnames';
 
 import { ListRow } from './ListRow';
-import { getPlays } from '../utils/bggFetch.js';
+import { Button } from './Button';
 
 import clock from '../icons/clock.svg';
 import meeple from '../icons/meeple.svg';
@@ -22,7 +22,7 @@ function playtimeString({ minplaytime, maxplaytime }) {
 
 const gameWeight = R.path(['statistics', 'ratings', 'averageweight']);
 
-export function GameListRow({ game, index, expanded, onClick, username }) {
+export function GameListRow({ game, index, expanded, onClick, username, selectGame }) {
   return (
     <ListRow className={cx('GameListRow', {expanded})} onClick={onClick} index={index} evenOddColour={true}>
       <div className="GameListRow-body">
@@ -42,10 +42,10 @@ export function GameListRow({ game, index, expanded, onClick, username }) {
           { game.minplaytime ? <ReactSVG className="GameListRow-playtime-icon" src={clock} /> : null}
           { game.minplaytime ? `${playtimeString(game)}`: ''}
         </span>
-        <span className="GameListRow-plays" onClick={() => getPlays(username, game.objectid)}>
+        <Button className="GameListRow-plays" onClick={() => selectGame(game)}>
           { game.numplays ? <ReactSVG className="GameListRow-plays-icon" src={play} /> : null}
           { game.numplays }
-        </span>
+        </Button>
       </div>
     </ListRow>
   );

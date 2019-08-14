@@ -9,7 +9,7 @@ export function Login({ onLogin }) {
     <div className="Login">
       <label className="Login-label" id="usernameLabel">Enter your BGG username</label>
       <input
-        aria-labelledBy="usernameLabel"
+        aria-labelledby="usernameLabel"
         className="Login-input"
         type="text"
         value={value}

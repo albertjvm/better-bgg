@@ -1,0 +1,58 @@
+.PlayView {
+  height: 100%;
+}
+
+.PlayView-heading {
+  display: flex;
+  justify-content: space-between;
+  background-color: #222;
+  color: white;
+  margin: 0;
+  height: 2rem;
+  padding: 1rem 0;
+}
+
+.PlayView-back-icon {
+  position: relative;
+  top: -2px;
+  transform: rotate(90deg);
+}
+
+.PlayView-back-icon svg {
+  height: 2rem;
+  width: 2rem;
+  fill: white;
+}
+
+.PlayGrid {
+  height: calc(100% - 4rem);
+}
+
+.PlayGrid-column-headings {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  background-color: #222;
+}
+
+.PlayGrid-column-headings > * {
+  flex: 1;
+  color: white;
+}
+
+.PlayGrid-body {
+  display: grid;
+  height: calc(100% - 2rem);
+  grid-template-columns: repeat(3, 1fr);
+  overflow: scroll;
+}
+
+.PlayGrid-body > * {
+  padding: 0.5rem 0;
+}
+
+.PlayGrid-body *:nth-child(6n + 1),
+.PlayGrid-body *:nth-child(6n + 2),
+.PlayGrid-body *:nth-child(6n + 3) {
+  background-color: #ddd;
+}

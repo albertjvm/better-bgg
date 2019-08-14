@@ -61,6 +61,11 @@
   line-height: 0.75rem;
 }
 
+.GameListRow-plays {
+  background-color: #222;
+  color: white;
+}
+
 .GameListRow-plays-icon,
 .GameListRow-players-icon,
 .GameListRow-playtime-icon,
@@ -100,7 +105,7 @@
   width: 16px;
 }
 .GameListRow-plays-icon svg {
-  fill: #222;
+  fill: white;
   height: 16px;
   width: 16px;
 }
